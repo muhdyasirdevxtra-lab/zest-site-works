@@ -1,26 +1,47 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { Mission } from "@/components/site/Mission";
+import { Services } from "@/components/site/Services";
+import { WhyUs } from "@/components/site/WhyUs";
+import { CaseStudies } from "@/components/site/CaseStudies";
+import { Testimonials } from "@/components/site/Testimonials";
+import { CTA } from "@/components/site/CTA";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Upreach — Grow your business, master every move" },
+      {
+        name: "description",
+        content:
+          "Upreach helps businesses thrive with high-converting digital strategies, brand building, and measurable growth campaigns.",
+      },
+      { property: "og:title", content: "Upreach — Marketing & growth agency" },
+      {
+        property: "og:description",
+        content: "High-converting marketing strategies designed to scale your business.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Hero />
+        <Mission />
+        <Services />
+        <WhyUs />
+        <CaseStudies />
+        <Testimonials />
+        <CTA />
+      </main>
+      <Footer />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
