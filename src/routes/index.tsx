@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
-import { Mission } from "@/components/site/Mission";
+import { About } from "@/components/site/Mission";
+import { Clients } from "@/components/site/Clients";
 import { Services } from "@/components/site/Services";
-import { WhyUs } from "@/components/site/WhyUs";
-import { CaseStudies } from "@/components/site/CaseStudies";
 import { Testimonials } from "@/components/site/Testimonials";
 import { CTA } from "@/components/site/CTA";
+import { FAQ } from "@/components/site/FAQ";
+import { Insights } from "@/components/site/Insights";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
@@ -34,12 +35,18 @@ function Index() {
       <Header />
       <main>
         <Hero />
-        <Mission />
+        <About />
+        <Clients />
+        <CTA
+          eyebrow="Start a project"
+          title="Move faster with a senior team."
+          subtitle="Book a 30-minute intro call. We'll map out the highest-leverage moves for your next quarter."
+        />
         <Services />
-        <WhyUs />
-        <CaseStudies />
         <Testimonials />
         <CTA />
+        <FAQ />
+        <Insights />
       </main>
       <Footer />
     </div>

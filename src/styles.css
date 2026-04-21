@@ -63,37 +63,39 @@
 
 :root {
   --radius: 0.625rem;
-  /* Dark navy-green agency theme */
-  --background: oklch(0.19 0.025 175);
-  --foreground: oklch(0.97 0.01 150);
-  --card: oklch(0.23 0.028 175);
-  --card-foreground: oklch(0.97 0.01 150);
-  --popover: oklch(0.23 0.028 175);
-  --popover-foreground: oklch(0.97 0.01 150);
-  --primary: oklch(0.78 0.18 150);
-  --primary-foreground: oklch(0.18 0.04 170);
-  --secondary: oklch(0.27 0.03 175);
-  --secondary-foreground: oklch(0.97 0.01 150);
-  --muted: oklch(0.27 0.025 175);
-  --muted-foreground: oklch(0.72 0.02 160);
-  --accent: oklch(0.78 0.18 150);
-  --accent-foreground: oklch(0.18 0.04 170);
+  /* Premium black & white agency theme */
+  --background: oklch(0.16 0 0);            /* #111111 soft black */
+  --foreground: oklch(1 0 0);               /* #FFFFFF */
+  --card: oklch(0.21 0 0);                  /* #1A1A1A */
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.21 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(1 0 0);                  /* white CTA */
+  --primary-foreground: oklch(0.16 0 0);
+  --secondary: oklch(0.21 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.21 0 0);
+  --muted-foreground: oklch(0.74 0 0);      /* #B0B0B0 */
+  --accent: oklch(1 0 0);
+  --accent-foreground: oklch(0.16 0 0);
   --destructive: oklch(0.6 0.22 25);
-  --destructive-foreground: oklch(0.97 0.01 150);
-  --border: oklch(0.32 0.025 175);
-  --input: oklch(0.32 0.025 175);
-  --ring: oklch(0.78 0.18 150);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.08);
+  --ring: oklch(1 0 0 / 0.3);
 
-  /* Brand tokens */
-  --brand-deep: oklch(0.16 0.025 175);
-  --brand-surface: oklch(0.23 0.028 175);
-  --brand-green: oklch(0.78 0.18 150);
-  --brand-green-soft: oklch(0.85 0.14 150);
-  --gradient-hero: radial-gradient(ellipse at top right, oklch(0.3 0.06 160 / 0.5), transparent 60%);
-  --gradient-green: linear-gradient(135deg, oklch(0.82 0.17 150), oklch(0.7 0.18 155));
-  --shadow-glow: 0 20px 60px -20px oklch(0.78 0.18 150 / 0.35);
-  --shadow-card: 0 30px 80px -30px oklch(0 0 0 / 0.5);
-  --grid-line: oklch(0.97 0.01 150 / 0.05);
+  /* Brand tokens — glass + clay */
+  --brand-deep: oklch(0.13 0 0);
+  --brand-surface: oklch(0.21 0 0);
+  --glass-bg: oklch(1 0 0 / 0.04);
+  --glass-border: oklch(1 0 0 / 0.08);
+  --glass-strong: oklch(1 0 0 / 0.08);
+  --gradient-hero: radial-gradient(ellipse at top right, oklch(1 0 0 / 0.06), transparent 60%);
+  --gradient-soft: linear-gradient(135deg, oklch(1 0 0 / 0.06), oklch(1 0 0 / 0.01));
+  --shadow-glow: 0 20px 60px -20px oklch(1 0 0 / 0.18);
+  --shadow-card: 0 30px 80px -30px oklch(0 0 0 / 0.6);
+  --shadow-clay: 0 10px 30px -12px oklch(0 0 0 / 0.55), inset 0 1px 0 0 oklch(1 0 0 / 0.06);
+  --grid-line: oklch(1 0 0 / 0.04);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -180,3 +182,47 @@
   to { transform: translateX(-50%); }
 }
 .animate-marquee { animation: marquee 30s linear infinite; }
+
+/* Glass + clay utilities */
+.glass {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--glass-border);
+}
+.glass-strong {
+  background-color: var(--glass-strong);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--glass-border);
+}
+.clay {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-clay);
+  border-radius: 1.5rem;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.7s ease-out both; }
+
+/* Animated underline for nav links */
+.nav-underline { position: relative; }
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+.nav-underline:hover::after,
+.nav-underline[data-status="active"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
