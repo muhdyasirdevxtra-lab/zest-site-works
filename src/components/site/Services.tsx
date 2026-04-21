@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { services } from "@/data/services";
+import { services } from "../../data/services";
 
 export function Services() {
   return (

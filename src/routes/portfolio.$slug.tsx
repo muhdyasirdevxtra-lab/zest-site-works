@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
-import { getCase } from "@/data/portfolio";
+import { getCase } from "../data/portfolio";
 
 export const Route = createFileRoute("/portfolio/$slug")({
   loader: ({ params }) => {
