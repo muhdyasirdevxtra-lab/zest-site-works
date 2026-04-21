@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTA } from "@/components/site/CTA";
-import { services } from "@/data/services";
+import { services } from "../data/services";
 import { ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/services")({

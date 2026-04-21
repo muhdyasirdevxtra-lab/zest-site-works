@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { caseStudies } from "@/data/portfolio";
+import { caseStudies } from "../../data/portfolio";
 
 export function CaseStudies() {
   return (
