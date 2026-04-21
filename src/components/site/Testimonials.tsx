@@ -21,24 +21,22 @@ const items = [
 
 export function Testimonials() {
   return (
-    <section id="testimonials" className="py-32">
+    <section id="testimonials" className="py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Testimonials
-          </p>
+          <p className="mb-3 text-sm uppercase tracking-[0.25em] text-primary">Testimonials</p>
           <h2 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Loved by ambitious teams.
+            Loved by ambitious teams
           </h2>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {items.map((t) => (
             <figure
               key={t.name}
-              className="clay p-8 transition-all hover:-translate-y-1 hover:bg-white/[0.06]"
+              className="rounded-3xl border border-border bg-card p-8 transition-colors hover:bg-secondary"
             >
-              <div className="mb-6 flex gap-0.5 text-foreground">
+              <div className="mb-6 flex gap-0.5 text-primary">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <span key={i}>★</span>
                 ))}
@@ -46,7 +44,7 @@ export function Testimonials() {
               <blockquote className="text-base leading-relaxed text-foreground">
                 "{t.quote}"
               </blockquote>
-              <figcaption className="mt-6 border-t border-[var(--glass-border)] pt-4">
+              <figcaption className="mt-6 border-t border-border pt-4">
                 <p className="font-medium text-foreground">{t.name}</p>
                 <p className="text-sm text-muted-foreground">{t.role}</p>
               </figcaption>
